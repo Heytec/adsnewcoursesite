@@ -37,64 +37,188 @@
       padding: 0 20px;
     }
 
-    header {
-      background: linear-gradient(135deg, var(--primary-color) 0%, #1a6db2 100%);
-      color: var(--white);
-      padding: 1.5rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: var(--shadow);
-    }
 
+
+
+     /* Header and navigation */
+     header {
+    background: linear-gradient(135deg, #0a2e63 0%, #1a6db2 100%);
+    color: white;
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+  }
+
+  .logo span {
+    color: #ffce00;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+
+  nav ul li {
+    margin-left: 2rem;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  nav ul li a:hover {
+    color: #ffce00;
+  }
+
+  .cta-button {
+    background-color: #ffce00;
+    color: #0a2e63;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  .cta-button:hover {
+    background-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Mobile menu toggle */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 200;
+  }
+
+  .menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  /* Responsive styles */
+   /* Responsive styles */
+    /* Responsive styles */
+    @media (max-width: 992px) {
+    nav ul li {
+      margin-left: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
     .header-content {
-      display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--white);
-      text-decoration: none;
+    
+    .menu-toggle {
+      display: flex;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
-    .logo span {
-      color: var(--secondary-color);
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: linear-gradient(135deg, #0a2e63 0%, #1a6db2 100%);
+      padding: 80px 20px 20px;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+    }
+
+
+    nav.active {
+      right: 0;
     }
 
     nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    nav ul li {
+      margin: 0 0 1.5rem 0;
+      width: 100%;
     }
 
     nav ul li a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
+      display: block;
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
     }
 
-    nav ul li a:hover {
-      color: var(--secondary-color);
+    nav ul li:last-child {
+      margin-top: 1rem;
     }
 
-    .cta-button {
-      background-color: var(--secondary-color);
-      color: var(--primary-color);
-      padding: 0.6rem 1.2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s;
+    nav ul li .cta-button {
+      display: block;
+      text-align: center;
+      width: 100%;
     }
+  }
 
-    .cta-button:hover {
-      background-color: var(--white);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  @media (max-width: 480px) {
+    .logo {
+      font-size: 1.5rem;
     }
+  }
+
+
+
 
     .hero-section {
       background: linear-gradient(135deg, var(--primary-color) 0%, #1a6db2 100%);
@@ -461,10 +585,18 @@
 </head>
 <body>
   <!-- Header -->
-  <header>
+   <!-- Header -->
+
+   <!-- Header -->
+   <header>
     <div class="container">
       <div class="header-content">
         <a href="index.html" class="logo">Africa <span>Data School</span></a>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <nav>
           <ul>
             <li><a href="index.html#why-join">Why Us</a></li>
@@ -477,6 +609,9 @@
       </div>
     </div>
   </header>
+
+
+
 
   <!-- Hero Section -->
   <section class="hero-section">
@@ -1152,6 +1287,32 @@
         clearInterval(timerInterval);
       }
     }, 1000);
+  </script>
+
+
+<!-- Add this JavaScript at the end of your body tag -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the menu toggle button and the navigation
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      
+      // Add click event listener to the menu toggle
+      menuToggle.addEventListener('click', function() {
+        // Toggle active class on menu toggle and navigation
+        menuToggle.classList.toggle('active');
+        nav.classList.toggle('active');
+      });
+      
+      // Close menu when clicking on navigation links
+      const navLinks = document.querySelectorAll('nav ul li a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          menuToggle.classList.remove('active');
+          nav.classList.remove('active');
+        });
+      });
+    });
   </script>
  
   
