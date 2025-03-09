@@ -21,7 +21,8 @@
 
                       /* Header and navigation */
                      /* Header and navigation */
-  header {
+   /* Header and navigation */
+   header {
     background: linear-gradient(135deg, #0a2e63 0%, #1a6db2 100%);
     color: white;
     padding: 1.5rem 0;
@@ -110,15 +111,27 @@
   }
 
   /* Responsive styles */
-  @media (max-width: 992px) {
+   /* Responsive styles */
+    /* Responsive styles */
+    @media (max-width: 992px) {
     nav ul li {
       margin-left: 1.5rem;
     }
   }
 
   @media (max-width: 768px) {
+    .header-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
     .menu-toggle {
       display: flex;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .menu-toggle.active span:nth-child(1) {
@@ -146,6 +159,7 @@
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
       z-index: 99;
     }
+
 
     nav.active {
       right: 0;
@@ -1248,7 +1262,8 @@
   </head>
   <body>
  <!-- Header -->
-<header>
+ <!-- Header -->
+ <header>
   <div class="container">
     <div class="header-content">
       <a href="#" class="logo">Africa <span>Data School</span></a>
@@ -1899,17 +1914,19 @@
 
 <!-- Add this JavaScript at the end of your body tag -->
 <script>
-  // Mobile menu toggle functionality
   document.addEventListener('DOMContentLoaded', function() {
+    // Get the menu toggle button and the navigation
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('nav');
     
+    // Add click event listener to the menu toggle
     menuToggle.addEventListener('click', function() {
+      // Toggle active class on menu toggle and navigation
       menuToggle.classList.toggle('active');
       nav.classList.toggle('active');
     });
     
-    // Close menu when clicking on a link
+    // Close menu when clicking on navigation links
     const navLinks = document.querySelectorAll('nav ul li a');
     navLinks.forEach(link => {
       link.addEventListener('click', function() {
